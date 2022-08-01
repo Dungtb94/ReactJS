@@ -5,45 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 </head>
 <body>
-    <h1>alo</h1>
     <div id="root"></div>
+    <script type="text/babel">
+        const courses = [
+            {
+                name: 'HTML, CSS',
+            },
+            {
+                name: 'Ressponsive web design',
+            },
+            {
+                name: 'ReactJS'
+            }
+        ]
 
-    <script>
-        // DOM
-        const divDOM = document.createElement('div')
-        divDOM.className = 'post-item'
+        const jsx = (
+            <ul>
+                {courses.map((course, index) =>
+                    <li key={index}>{course.name}</li>
+                )}
+            </ul>
+        )
 
-        const h2DOM = document.createElement('h2')
-        h2DOM.title = 'Học React tại F8'
-        h2DOM.innerText = 'Học ReactJS'
-
-        divDOM.appendChild(h2DOM)
-
-        document.body.appendChild(divDOM)
-
-
-
-        // React
-        const divReact = React.createElement('div',{
-            className: 'post-item'  
-        },React.createElement('h2',{
-            title: 'Học React tại F8'
-        },'Học ReactJS'))
-
-        console.log(divReact)
-
-        //get root element
-        const container = document.getElementById('root')
-        const root = ReactDOM.createRoot(container)
-        root.render(divReact)
-
-        // render UI
-        // ReactDOM.render(divReact, root)
+    ReactDOM.render(jsx, document.getElementById('root'))
+    // const root = ReactDOM.createRoot(document.querySelector('#root'));
+    // root.render(React.createElement(jsx))
     </script>
 </body>
 </html>
